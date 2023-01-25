@@ -17,7 +17,8 @@ try {
       );
       const datasets = json.result.results;
       datasets.forEach((dataset) => {
-        dataset.name += '-demo-instance';
+        dataset.name = 'sdaia-test-' + dataset.name;
+        dataset.title = '[SDAIA TEST] ' + dataset.title;
         dataset.owner_org = 'test';
         delete dataset.organization;
         delete dataset.id;
