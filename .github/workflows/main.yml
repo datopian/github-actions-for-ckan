@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Harvest external source
         id: harvest
-        uses: datopian/github-actions-for-ckan@v1.1
+        uses: datopian/github-actions-for-ckan@v1.2
         with:
           url-to-harvest: 'https://pkgstore.datahub.io/core/finance-vix/978/datapackage.json'
