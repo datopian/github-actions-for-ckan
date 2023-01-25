@@ -19,6 +19,7 @@ try {
       datasets.forEach((dataset) => {
         dataset.owner_org = 'test';
         delete dataset.organization;
+        delete dataset.id;
         client.create(dataset).then((res) => console.log(res.name));
       });
     });
