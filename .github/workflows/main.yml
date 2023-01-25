@@ -1,0 +1,12 @@
+on: [push]
+
+jobs:
+  ckan-harvest-job:
+    runs-on: ubuntu-latest
+    name: CKAN Harvester
+    steps:
+      - name: Harvest external source
+        id: harvest
+        uses: datopian/github-actions-for-ckan@v1.0
+        with:
+          url-to-harvest: 'https://pkgstore.datahub.io/core/finance-vix/978/datapackage.json'
