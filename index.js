@@ -17,6 +17,7 @@ try {
       );
       const datasets = json.result.results;
       datasets.forEach((dataset) => {
+        dataset.name += '-demo-instance';
         dataset.owner_org = 'test';
         delete dataset.organization;
         delete dataset.id;
