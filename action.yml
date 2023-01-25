@@ -1,0 +1,13 @@
+name: 'CKAN Harvester'
+description: 'This action can harvest metadata from Datahub.io into CKAN instance.'
+inputs:
+  url-to-harvest:  # id of input
+    description: 'URL that exposes a metadata.'
+    required: true
+    default: 'https://pkgstore.datahub.io/core/finance-vix/978/datapackage.json'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'node16'
+  main: 'index.js'
