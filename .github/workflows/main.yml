@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Harvest external source
         id: harvest
-        uses: datopian/github-actions-for-ckan@v1.5
+        uses: datopian/github-actions-for-ckan@v1.6
         with:
           url-to-harvest: 'https://demo.dev.datopian.com/api/3/action/package_search'
