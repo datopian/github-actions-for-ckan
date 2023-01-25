@@ -17,6 +17,8 @@ try {
       );
       delete json.id;
       json.owner_org = 'test';
+      json.notes = json.readme;
+      delete json.readme;
       client.create(json).then(console.log);
     });
 } catch (error) {
