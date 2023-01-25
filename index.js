@@ -15,11 +15,10 @@ try {
         '',
         'https://ckan.x.demo.datopian.com'
       );
-      delete json.id;
-      json.owner_org = 'test';
-      json.notes = json.readme;
-      delete json.readme;
-      client.create(json).then(console.log);
+      const datasets = json.result.results;
+      datasets.forEach((dataset) => {
+        client.create(dataset).then((res) => console.log(res.name));
+      });
     });
 } catch (error) {
   core.setFailed(error.message);

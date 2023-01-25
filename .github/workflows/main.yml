@@ -9,4 +9,4 @@ jobs:
         id: harvest
         uses: datopian/github-actions-for-ckan@v1.2
         with:
-          url-to-harvest: 'https://pkgstore.datahub.io/core/finance-vix/978/datapackage.json'
+          url-to-harvest: 'https://od.data.gov.sa/Data/api/3/action/package_search'
