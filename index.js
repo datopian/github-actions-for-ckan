@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fetch = require('node-fetch');
+const { Client } = require('ckan-client');
 
 try {
   const urlToHarvest = core.getInput('url-to-harvest');
@@ -8,11 +9,16 @@ try {
   fetch(urlToHarvest)
     .then((res) => res.json())
     .then((json) => {
-      console.log(json);
+      const client = new Client(
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiItTlljei1CeXRnT0xabUJpUnU3ZS1QczlsSU15TkhvVGczdE5lZHhFUkxibFlKYkJVektFM3czMjFLcFo1MU5mLXVXOEY2dW0ta3Fya1pweCIsImlhdCI6MTY3NDY0NTAzMn0.ccwchbB7jf8QbEjvDroulwuRPZFWJhKpV0PJJsnTctE',
+        '',
+        '',
+        'https://ckan.x.demo.datopian.com'
+      );
+      delete json.id;
+      json.owner_org = 'test';
+      client.create(json).then(console.log);
     });
-  //   const time = (new Date()).toTimeString();
-  //   core.setOutput("time", time);
-  
 } catch (error) {
   core.setFailed(error.message);
 }
