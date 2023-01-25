@@ -17,6 +17,8 @@ try {
       );
       const datasets = json.result.results;
       datasets.forEach((dataset) => {
+        dataset.owner_org = 'test';
+        delete dataset.organization;
         client.create(dataset).then((res) => console.log(res.name));
       });
     });
