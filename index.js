@@ -1,12 +1,16 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fetch = require('node-fetch');
+const https = require('https');
 const { Client } = require('ckan-client');
 
 try {
+  const httpsAgent = new https.Agent({
+    rejectUnauthorized: false,
+  });
   const urlToHarvest = core.getInput('url-to-harvest');
   console.log(`URL to harvest: ${urlToHarvest}!`);
-  fetch(urlToHarvest)
+  fetch(urlToHarvest, {agent: httpsAgent})
     .then((res) => res.json())
     .then((json) => {
       const client = new Client(
