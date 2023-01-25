@@ -20,6 +20,21 @@ try {
         dataset.owner_org = 'test';
         delete dataset.organization;
         delete dataset.id;
+        // Groups
+        delete dataset.groups;
+        // Resources
+        dataset.resources = dataset.resources.map((resource) => {
+          delete resource.id;
+          delete resource.package_id;
+          return resource;
+        })
+        // Tags
+        dataset.tags = dataset.tags.map((tag) => {
+          delete tag.id;
+          return tag;
+        })
+        // Misc
+        delete dataset.creator_user_id;
         client.create(dataset).then((res) => console.log(res.name));
       });
     });
